@@ -1,5 +1,4 @@
 module WaldorfAndStatler
-
 	def self.roll_die
 		rand(1..6)
 	end
