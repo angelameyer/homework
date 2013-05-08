@@ -7,46 +7,53 @@ puts "Enter p for paper"
 player_choice = gets
 
 class Game
-
 	def initialize(player_choice)
 		@player_choice = player_choice
 	end
 
-	def play_round(player_choice)
+	def play_round
 			rps = ['r', 'p', 's']
-			@computer_choice = rps[rand(0..2)]
+			random_index = rand(0..2)
+			@computer_choice = rps[random_index]
 			puts @computer_choice
-	
-		if @player_choice == rps[1] && @computer_choice == rps[0] ||
-			 @player_choice == rps[2] && @computer_choice == rps[1] ||
-			 @player_choice == rps[0] && @computer_choice == rps[2]
-				puts "You Win!"
-		elsif @player_choice == @computer_choice
-			puts "You Tie!"
+
+			who_wins(@player_choice, @computer_choice, rps)
+	end
+
+	def who_wins(player_choice, computer_choice)
+		if player_choice == 'p' && computer_choice == 'r' ||
+		   player_choice == 'r' && computer_choice == 's' ||
+		   player_choice == 's' && computer_choice == 'p'
+			 puts "You Lose!"
+
+		elsif player_choice == 'r' && computer_choice == 'r' ||
+		   player_choice == 'p' && computer_choice == 'p' ||
+		   player_choice == 's' && computer_choice == 's'
+			 puts "You Tie!"		
 		else
-			puts "You Lose!"
+		  puts "You Win!"	
 		end
 	end
 end
 
 game1 = Game.new(player_choice)
-
-game1.play_round(player_choice)
-
-# class Compare
+#game1.play_round
 
 
-# scissors beats paper
-# paper beats rock
-# rock beats scissors
+puts "Should be all wins:"
+game1.who_wins('r', 's')
+game1.who_wins('p', 'r')
+game1.who_wins('s', 'p')
+puts
 
-# end
+puts "Should be all ties:"
+game1.who_wins('r', 'r')
+game1.who_wins('p', 'p')
+game1.who_wins('s', 's')
+puts
 
-# class Winner
-
-
-
-# end
-
-
-
+puts "Should be all loses:"
+game1.who_wins('r', 'p')
+game1.who_wins('s', 'r')
+game1.who_wins('p', 's')
+puts
