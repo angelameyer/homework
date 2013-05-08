@@ -15,45 +15,49 @@ class Game
 			rps = ['r', 'p', 's']
 			random_index = rand(0..2)
 			@computer_choice = rps[random_index]
-			puts @computer_choice
+			puts "You played #{@player_choice}"
+			puts "Computer played #{@computer_choice}."
 
-			who_wins(@player_choice, @computer_choice, rps)
+			who_wins(@player_choice, @computer_choice)
 	end
 
 	def who_wins(player_choice, computer_choice)
-		if player_choice == 'p' && computer_choice == 'r' ||
-		   player_choice == 'r' && computer_choice == 's' ||
-		   player_choice == 's' && computer_choice == 'p'
-			 puts "You Lose!"
+		if (player_choice == 's' && computer_choice == 'p') ||
+		   (player_choice == 'r' && computer_choice == 's') ||
+		   (player_choice == 'p' && computer_choice == 'r') 
+			 puts "You Win!"
 
-		elsif player_choice == 'r' && computer_choice == 'r' ||
-		   player_choice == 'p' && computer_choice == 'p' ||
-		   player_choice == 's' && computer_choice == 's'
-			 puts "You Tie!"		
-		else
-		  puts "You Win!"	
+		elsif (player_choice == 'r' && computer_choice == 'r') ||
+		   (player_choice == 'p' && computer_choice == 'p') ||
+		   (player_choice == 's' && computer_choice == 's')
+			  puts "You Tie!"		
+		elsif
+			(player_choice == 'p' && computer_choice == 's') ||
+		  (player_choice == 's' && computer_choice == 'r') ||
+		  (player_choice == 'r' && computer_choice == 'p') 
+		  puts "You Lose!"	
 		end
 	end
 end
 
-game1 = Game.new(player_choice)
-#game1.play_round
+game1 = Game.new(player_choice.strip)
+game1.play_round()
 
 
-puts "Should be all wins:"
-game1.who_wins('r', 's')
-game1.who_wins('p', 'r')
-game1.who_wins('s', 'p')
-puts
+# puts "Should be all wins:"
+# game1.who_wins('r', 's')
+# game1.who_wins('p', 'r')
+# game1.who_wins('s', 'p')
+# puts
 
-puts "Should be all ties:"
-game1.who_wins('r', 'r')
-game1.who_wins('p', 'p')
-game1.who_wins('s', 's')
-puts
+# puts "Should be all ties:"
+# game1.who_wins('r', 'r')
+# game1.who_wins('p', 'p')
+# game1.who_wins('s', 's')
+# puts
 
-puts "Should be all loses:"
-game1.who_wins('r', 'p')
-game1.who_wins('s', 'r')
-game1.who_wins('p', 's')
-puts
+# puts "Should be all loses:"
+# game1.who_wins('r', 'p')
+# game1.who_wins('s', 'r')
+# game1.who_wins('p', 's')
+# puts
