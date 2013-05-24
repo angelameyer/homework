@@ -1,4 +1,4 @@
-puts "Enter in any 1-800 number. We will produce a list of all possible outcomes."
+puts "Enter in any 1-800-000-0000 (numbers only). We will produce a list of all possible outcomes."
 
 entry = gets
 
