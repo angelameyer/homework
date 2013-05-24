@@ -50,7 +50,7 @@ def print_digits(digits)
   digits.each_char do |digit_char|
     segments = convert(digit_char)
 
-    row = 0subl
+    row = 0
     segments.each do |seg|
       result_lines[row] += "#{seg} "
       row += 1
@@ -64,13 +64,5 @@ end
 
 
 print_digits("1")
-
-	# user_entry = "1"
-
-	# numbers.each_char do |digit_char|
-	#   print numbers(digit_char)
-	# end
-
-
 
 

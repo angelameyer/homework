@@ -1,6 +1,6 @@
 puts "Enter in a 1-800-XXX-XXXX number."
 
-entry = gets
+entry = "1-800-FUC-KUPS"
 
 # gets.strip = entry
 
@@ -48,7 +48,6 @@ end
 def print(entry_letters)
 	new_numbers = []
 	
-
 	entry_letters.each do |letter|
 	 	number_array = convert(letter)
 	 	new_numbers << number_array
@@ -61,5 +60,6 @@ end
 
 
 print(entry_letters)
+
 
 
