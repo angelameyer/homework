@@ -1,11 +1,12 @@
 puts "Choose a number between 0-1000"
 
+digits = gets.strip
 
 def convert(digit_char)
 		numbers = {
 				    "1" => ["   ", 
-				    	      "  |",
-				    	      "  |"], 
+			    	        "  |",
+			    	        "  |"], 
 				    "2" => [" _ ",
 				            " _|",
 				            "|_ "],
@@ -63,6 +64,6 @@ def print_digits(digits)
 end
 
 
-print_digits("1")
+print_digits(digits)
 
 
