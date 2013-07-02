@@ -65,5 +65,3 @@ end
 
 		player1 = Player.new("kim")
   	player2 = Player.new("kanye")
-
-player1.play_game
