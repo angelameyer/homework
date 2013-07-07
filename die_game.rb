@@ -25,18 +25,18 @@ class Game
 
 
 		case player_score
-		when == 31
-			break
-			puts "(Active player) wins!"
+			when == 31
+			 break
+			 puts "(Active player) wins!"
 
-		when >= 31
-			break
-			puts "(Active player) overshot and lost :( (Inactive player) wins!"	
-		else player_score < 31
-			puts "Taking another turn!"
+			when >= 31
+			 break
+			 puts "(Active player) overshot and lost :( (Inactive player) wins!"	
+			else player_score < 31
+			 puts "Taking another turn!"
 			#change active player
+			end
 		end
-	end
 
 	def choice(choice_array)
 		choice_array.shuffle[0]
