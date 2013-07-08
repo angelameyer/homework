@@ -1,3 +1,12 @@
+# #loop do
+# 	# choose next player
+# 	# player flips die
+# 	# check if win or loss
+# 	# if win / loss, print message and break
+# 	# otherwise, start over at top
+# #end
+
+
 class Player
 	def initialize(name, score=0)
 		@name = name.capitalize
@@ -9,10 +18,16 @@ class Game
 	def initalize
 		@players = ["Kim", "Kanye"]
 	 	@current_player_index = 0
+	 	@player_scores = Hash.new(0)
+ 	end
+
+
+ 	def update_score
+ 		@score + flip_choice
  	end
 
   def play
-  	current_player.roll
+  	current_player.roll_die
   	puts "(Active player) rolled (roll)."
   	next_player
 
@@ -20,7 +35,7 @@ class Game
 			current_player.flip
 			puts "Playing round."
 			puts "\n #{current_player.name} flipped #{flip_choice}"
-
+			update_score
 			if @player_score == 31
 				puts "#{current_player} wins!"
 				break
@@ -43,39 +58,45 @@ class Game
 		@players[@current_player_index % @players.length]
 	end	
 
-	def print_flip_choices
-		puts "Choose a side: #{@choice_array.join(',')}"
+	def roll_die
+		top_side = rand(1..6)
 	end
 
-	def roll
-		(1..6)
-	end
 
-	def flip(roll)
-		if roll == 1
-			@choice_array = [2, 3, 4, 5]
-			print_flip_choices
-		elsif roll == 2
-			@choice_array = [1, 3, 4, 6]
-			print_flip_choices
-		elsif roll == 3
-			@choice_array = [1, 2, 5, 6]
-			print_flip_choices
-		elsif roll == 4
-			@choice_array = [1, 2, 5, 6]
-			print_flip_choices
-		elsif roll == 5
-			@choice_array = [1, 3, 4, 6]
-			print_flip_choices
-		elsif roll == 6
-			@choice_array = [2, 3, 4, 5]
-			print_flip_choices
-		else 
-			puts "That is an invalid number, please flip again."
+	def flip(top_side)
+		loop do
+			if top_side == 1
+				@choice_array = [2, 3, 4, 5]
+			elsif top_side == 2
+				@choice_array = [1, 3, 4, 6]
+			elsif top_side == 3
+				@choice_array = [1, 2, 5, 6]
+			elsif top_side == 4
+				@choice_array = [1, 2, 5, 6]
+			elsif top_side == 5
+				@choice_array = [1, 3, 4, 6]
+			elsif top_side == 6
+				@choice_array = [2, 3, 4, 5]
+			end
+
+			puts "Choose a side: #{@choice_array.join(', ')}"
+			flip_choice = gets.chomp.to_i
+
+			if @choice_array.include? flip_choice
+				puts "Great choice!"
+				return flip_choice
+			else
+				puts "That is an invalid number, please try again."
+			end
 		end
 	end
 end
 
 
-player1 = Player.new("Kim")
-player2 = Player.new("Kanye")
+player1 = Player.new("Kim", 0)
+player2 = Player.new("Kanye", 0)
+
+game1 = Game.new
+
+game1.play
+
