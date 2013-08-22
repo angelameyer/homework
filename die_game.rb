@@ -15,8 +15,9 @@ class Player
 end
 
 class Game
-	def initalize
-		@players = ["Kim", "Kanye"]
+
+	def initalize(players)
+		@players = [player1, player2]
 	 	@current_player_index = 0
 	 	@player_scores = Hash.new(0)
  	end
@@ -37,10 +38,10 @@ class Game
 			puts "\n #{current_player.name} flipped #{flip_choice}"
 			update_score
 			if @player_score == 31
-				puts "#{current_player} wins!"
+				puts "#{current_player.name} wins!"
 				break
 			elsif @player_score >= 31
-				puts "#{current_player} overshot and lost :( (Inactive player) wins!"	
+				puts "#{current_player.name} overshot and lost :( (Inactive player) wins!"	
 				break
 			else @player_score < 31
 				puts "(Inactive player)'s turn!"
@@ -92,9 +93,6 @@ class Game
 	end
 end
 
-
-player1 = Player.new("Kim", 0)
-player2 = Player.new("Kanye", 0)
 
 game1 = Game.new
 
