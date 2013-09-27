@@ -1,5 +1,4 @@
 class Die
-
   attr_accessor :top_side
 
   def initialize
@@ -13,7 +12,7 @@ class Die
 
   def flip_choice
     roll_die
-      if @top_side == 1
+    if @top_side == 1
       @choice_array = [2, 3, 4, 5]
     elsif @top_side == 2
       @choice_array = [1, 3, 4, 6]
