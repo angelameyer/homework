@@ -1,0 +1,7 @@
+<h1>Your Account Info:</h1>
+
+<h2> Your Name: <%= @user.name %> </h2>
+<h2> Your Email: <%= @user.email %></h3>
+<%= link_to 'Change your Password', edit_user_path %> </h3>
+
+<%= link_to "Sign out", signout_path, method: "delete" %>

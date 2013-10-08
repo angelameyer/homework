@@ -1,0 +1,7 @@
+<%- if @user.changed? && @user.save %>
+  <h1> Password updated! </h1>
+<%- else %>
+  <h1> Not saved properly, please try again. </h1>
+<%- end %>
+
+<%= link_to 'Go back to your account', user_path %> </h3>
